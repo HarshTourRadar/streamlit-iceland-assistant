@@ -18,6 +18,10 @@ class EventHandler(AssistantEventHandler):
         print(delta.value, end="", flush=True)
 
 
+def format_image_html(url, width, height):
+    return f'<br><img src="{url}" width="{width}" height="{height}">'
+
+
 if __name__ == "__main__":
     st.markdown(
         """<style>.block-container{max-width: 66rem !important;}</style>""",
@@ -67,3 +71,8 @@ if __name__ == "__main__":
                         "content": stream._current_message_content.text.value,
                     }
                 )
+
+    # Example of how to use format_image_html
+    if "image_url" in st.session_state:
+        image_html = format_image_html(st.session_state["image_url"], 200, 200)
+        st.markdown(image_html, unsafe_allow_html=True)
