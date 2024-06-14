@@ -1,6 +1,6 @@
 import streamlit as st
+from openai import AssistantEventHandler, OpenAI
 from typing_extensions import override
-from openai import OpenAI, AssistantEventHandler
 
 assistant_id = st.secrets["assistant_id"]
 openai_client = OpenAI(api_key=st.secrets["openai_apikey"])
