@@ -64,6 +64,7 @@ if __name__ == "__main__":
                     thread_id=thread.id,
                     assistant_id=assistant_id,
                     event_handler=EventHandler(),
+                    instructions="If the user asks for images or itinerary, please fetch the accurate and precise images from the attached documents.",
                 ) as stream:
                     stream.until_done()
                     st.session_state.messages.append(
